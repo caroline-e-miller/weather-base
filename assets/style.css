@@ -1,0 +1,21 @@
+body {
+    background-color: white;
+}
+
+.navbar-brand {
+    padding-top: .33rem;
+    padding-bottom: .33rem;
+    margin-right: 1rem;
+    font-size: 2.0rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.container {
+    margin: 30px;
+}
+
+.navbar-light {
+    margin-bottom: 10px;
+}
+
