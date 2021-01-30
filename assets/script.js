@@ -1,4 +1,4 @@
-// put together CSS/HTML layout
+var test;
 // look at previous activities for ideas (namely the mini project)
 // link up the weather API
 // create search mechanism (look at mini project)
