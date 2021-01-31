@@ -27,99 +27,36 @@
                 <nav class="navbar navbar-light bg-light">
                     <div class="container-fluid">
                         <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <input class="form-control me-2" id="input" type="search" placeholder="Search"
+                                aria-label="Search"></input>
+                            <button class="btn btn-outline-success" id="submit" type="submit">Search</button>
                         </form>
                     </div>
                 </nav>
 
-                <ul class="list-group">
+                <p>Recent Searches</p>
+                <ul class="pastSearches">
+                    <!-- <li class="list-group-item"></li>
                     <li class="list-group-item"></li>
                     <li class="list-group-item"></li>
                     <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li> -->
                 </ul>
             </div>
 
 
             <!-- selected city display within one big column -->
             <div id="display" class="col-md-9">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 id="city"></h2>
-                        <p id="temperature"></p>
-                        <p id="humidity"></p>
-                        <p id="wind-speed"></p>
-                        <p id="uv"></p>
+                <div class="row">
+                    <div class="card">
+                        <div class="row currentWeather"></div>
                     </div>
                 </div>
-                <!-- title with own row, cards with own row -->
-                <div class='row'>
-                    <h2>5 Day Forecast</h2>
-                </div>
-                <div id="week" class="row">
-                    <div class='col'>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Monday</div>
-                            <div class="card-body">
+                <div class="row forecast"></div>
 
-                                <!-- temperature and humidity divs -->
-                                <p class="card-text monday-temp" id="Temperature"></p>
-                                <p class="card-text monday-humidity" id="Humidity"></p>
-                                <p class="card-text monday-uv" id="UV"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='col'>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Tuesday</div>
-                            <div class="card-body">
-
-                                <p class="card-text tuesday-temp" id="Temperature"></p>
-                                <p class="card-text tuesday-humidity" id="Humidity"></p>
-                                <p class="card-text tuesday-uv" id="UV"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='col'>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Wednesday</div>
-                            <div class="card-body">
-
-                                <p class="card-text wednesday-temp" id="Temperature"></p>
-                                <p class="card-text wednesday-humidity" id="Humidity"></p>
-                                <p class="card-text wednesday-uv" id="UV"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='col'>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Thursday</div>
-                            <div class="card-body">
-
-                                <p class="card-text thursday-temp" id="Temperature"></p>
-                                <p class="card-text thursday-humidity" id="Humidity"></p>
-                                <p class="card-text thursday-uv" id="UV"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='col'>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Friday</div>
-                            <div class="card-body">
-
-                                <p class="card-text friday-temp" id="Temperature"></p>
-                                <p class="card-text friday-humidity" id="Humidity"></p>
-                                <p class="card-text friday-uv" id="UV"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
     </div>
-    </div>
+
 
     <script src="assets/script.js"></script>
 </body>
