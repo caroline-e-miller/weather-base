@@ -13,12 +13,11 @@ var currentWeatherEl = document.querySelector("currentWeather");
 var forecastEl = document.querySelector("forecast");
 var city = userInput.textContent;
 var forecast = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=" + city + "&appid=2cef2d7cae052715188e701df4ab1db7";
+var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2cef2d7cae052715188e701df4ab1db7";
 
 
 search.addEventListener("click", function (event) {
     event.preventDefault();
-    var city = userInput.textContent;
-    var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2cef2d7cae052715188e701df4ab1db7";
 
     console.log(city)
 
