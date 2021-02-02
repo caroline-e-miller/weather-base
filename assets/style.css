@@ -19,3 +19,26 @@ body {
     margin-bottom: 10px;
 }
 
+#main {
+    margin-bottom: 10px;
+}
+
+.uv-go-home {
+    font-weight: bold;
+    color: purple;
+}
+
+.uv-danger {
+    font-weight: bold;
+    color: red;
+}
+
+.uv-medium {
+    font-weight: bold;
+    color: rgb(253, 216, 5)
+}
+
+.uv-safe {
+    font-weight: bold;
+    color: rgb(22, 180, 22)
+}

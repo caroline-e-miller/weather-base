@@ -35,20 +35,14 @@
                 </nav>
 
                 <p>Recent Searches</p>
-                <ul class="pastSearches">
-                    <li class="list-group-item 1"></li>
-                    <li class="list-group-item 2"></li>
-                    <li class="list-group-item 3"></li>
-                    <li class="list-group-item 4"></li>
-                    <li class="list-group-item 5"></li>
-                </ul>
+                <section id="pastSearches"></section>
             </div>
 
 
             <!-- selected city display within one big column -->
             <div id="display" class="col-md-8">
                 <div class="row">
-                    <div class="card">
+                    <div class="card" id="main">
                         <div class="row" id="currentWeather">
                             <h1 id="current-city"></h1>
                             <p>Temperature: <span id="current-temp"></span></p>
@@ -58,6 +52,7 @@
                         </div>
                     </div>
                 </div>
+                <h5>Five-day forecast</h5>
                 <div class="row" id="forecast"></div>
 
         </main>

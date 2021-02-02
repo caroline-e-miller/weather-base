@@ -20,6 +20,7 @@ var latitude = null;
 var longitude = null;
 var city = "";
 var cities = [];
+var pastSearchesArea = document.getElementById("pastSearches")
 const dayRange = "&cnt=5&units=imperial&appid=2cef2d7cae052715188e701df4ab1db7";
 const fahrenheit = "&units=imperial&appid=2cef2d7cae052715188e701df4ab1db7";
 const lonComponent = "&lon="
@@ -87,7 +88,18 @@ function getUVIndex(lat, lon) {
         .then(function (data) {
             currentUV.textContent = data[0].value;
             console.log(data);
-
+            if (currentUV.value <= 2) {
+                currentUV.classList.add("uv-safe")
+            }
+            if (currentUV.value > 2 & currentUV.value <= 5) {
+                currentUV.classList.add("uv-medium")
+            }
+            if (currentUV.value > 5 & currentUV.value <= 7) {
+                currentUV.classList.add("uv-danger")
+            }
+            if (currentUV.value > 7) {
+                currentUV.classList.add("uv-go-home")
+            }
         })
 }
 
@@ -97,7 +109,11 @@ function loadSavedCities() {
     cities = cities ? cities.split(',') : []
     // render city buttons
 
-    // for 1 i < 5 i++
+    for (var i = 0; i < 5; i++) {
+        var cityButton = document.createElement('button');
+        cityButton.textContent = cities[i];
+        pastSearchesArea.appendChild(cityButton);
+    }
     // add on click that changes city variable to the city specified by button
 }
 
