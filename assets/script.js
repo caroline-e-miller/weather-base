@@ -15,18 +15,23 @@ var currentCity = document.getElementById("current-city");
 var currentTemp = document.getElementById("current-temp");
 var currentHumidity = document.getElementById("current-humidity");
 var currentWindSpeed = document.getElementById("current-wind");
-var currentUV = document.getElementById("current-uv")
+var currentUV = document.getElementById("current-uv");
+var latitude = null;
+var longitude = null;
 var city = "";
 var cities = [];
-const appID = "&units=imperial&appid=2cef2d7cae052715188e701df4ab1db7";
-// var city = userInput.textContent;
-var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=";
+const dayRange = "&cnt=5&appid=2cef2d7cae052715188e701df4ab1db7";
+const fahrenheit = "&units=imperial&appid=2cef2d7cae052715188e701df4ab1db7";
+const lonComponent = "&lon="
+const uvAPI = "&appid2cef2d7cae052715188e701df4ab1db7"
+var uvURL = "https://api.openweathermap.org/data/2.5/weather?lat=";
+var forecastURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=";
 var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=";
 
 
 
 function getCurrentWeather() {
-    fetch(currentWeatherURL + city + appID)
+    fetch(currentWeatherURL + city + fahrenheit)
         .then(function (response) {
             if (response.ok)
                 return response.json();
@@ -43,20 +48,36 @@ function getCurrentWeather() {
 }
 
 function get5DayForecast() {
-    fetch(forecastURL + city + appID)
+    // city = userInput.value;
+    fetch(forecastURL + city + dayRange)
         .then(function (response) {
             if (response.ok)
                 return response.json();
         })
         .then(function (data) {
-            //render 5 day forecast
             console.log(data);
+            //render 5 day forecast
+            for (var i = 0; i < 6; i++) {
+                var forecastArea = document.getElementById("forecast")
+                var futureDays = document.createElement("div");
+                var futureTemp = document.createElement("p");
+                var futureHumidity = document.createElement("p");
+                futureDays.setAttribute("class", "col card");
+                futureTemp.textContent = "Temperature: " + data.city.list[i].main.temp;
+                futureHumidity.textContent = "Humidity: " + data.city.list[i].main.humidity;
+                futureDays.appendChild(futureTemp);
+                futureDays.appendChild(futureHumidity);
+                forecastArea.appendChild(futureDays);
+            }
 
         })
 }
 
+// put this inside the getCurrentWeather function?
 function getUVIndex() {
-    fetch('' + city + appID)
+    latitude.value = data.coord.lat;
+    longitude.value = data.coord.lon;
+    fetch(uvURL + latitude + lonComponent + longitude + uvAPI)
         .then(function (response) {
             if (response.ok)
                 return response.json();
@@ -87,6 +108,7 @@ search.addEventListener("click", function (event) {
     event.preventDefault();
     city = userInput.value;
     getCurrentWeather();
+    get5DayForecast();
     if (!cities.includes(city)) {
         saveCity()
     }
