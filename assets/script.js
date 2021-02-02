@@ -25,7 +25,8 @@ const fahrenheit = "&units=imperial&appid=2cef2d7cae052715188e701df4ab1db7";
 const lonComponent = "&lon="
 const uvAPI = "&appid2cef2d7cae052715188e701df4ab1db7"
 var uvURL = "https://api.openweathermap.org/data/2.5/weather?lat=";
-var forecastURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=";
+var forecastURL = "https://api.openweathermap.org/data/2.5/forecast/?q="
+// var forecastURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=";
 var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=";
 
 
@@ -42,7 +43,7 @@ function getCurrentWeather() {
             currentHumidity.textContent = data.main.humidity;
             currentWindSpeed.textContent = data.wind.speed;
             console.log(data);
-            // getUVIndex()
+            // getUVIndex(data.coord.lat, data.coord.lon);
             // get5DayForecast()
         })
 }
@@ -63,8 +64,8 @@ function get5DayForecast() {
                 var futureTemp = document.createElement("p");
                 var futureHumidity = document.createElement("p");
                 futureDays.setAttribute("class", "col card");
-                futureTemp.textContent = "Temperature: " + data.city.list[i].main.temp;
-                futureHumidity.textContent = "Humidity: " + data.city.list[i].main.humidity;
+                futureTemp.textContent = "Temperature: " + data.list[i].main.temp;
+                futureHumidity.textContent = "Humidity: " + data.list[i].main.humidity;
                 futureDays.appendChild(futureTemp);
                 futureDays.appendChild(futureHumidity);
                 forecastArea.appendChild(futureDays);
@@ -74,20 +75,20 @@ function get5DayForecast() {
 }
 
 // put this inside the getCurrentWeather function?
-function getUVIndex() {
-    latitude.value = data.coord.lat;
-    longitude.value = data.coord.lon;
-    fetch(uvURL + latitude + lonComponent + longitude + uvAPI)
-        .then(function (response) {
-            if (response.ok)
-                return response.json();
-        })
-        .then(function (data) {
-            currentUV.textContent = 1000
-            console.log(data);
+// function getUVIndex() {
+//     latitude.value = data.coord.lat;
+//     longitude.value = data.coord.lon;
+//     fetch(uvURL + latitude + lonComponent + longitude + uvAPI)
+//         .then(function (response) {
+//             if (response.ok)
+//                 return response.json();
+//         })
+//         .then(function (data) {
+//             currentUV.textContent = 1000
+//             console.log(data);
 
-        })
-}
+//         })
+// }
 
 function loadSavedCities() {
 
