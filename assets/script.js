@@ -16,6 +16,7 @@ var currentTemp = document.getElementById("current-temp");
 var currentHumidity = document.getElementById("current-humidity");
 var currentWindSpeed = document.getElementById("current-wind");
 var currentUV = document.getElementById("current-uv");
+var forecastArea = document.getElementById("forecast")
 var latitude = null;
 var longitude = null;
 var city = "";
@@ -55,14 +56,17 @@ function get5DayForecast() {
     // var forecastUvURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&appid=2cef2d7cae052715188e701df4ab1db7"
     fetch(forecastURL + city + dayRange)
         .then(function (response) {
+
             if (response.ok)
+
                 return response.json();
         })
         .then(function (data) {
+            forecastArea.innerHTML = "";
             console.log(data);
             //render 5 day forecast
-            for (var i = 0; i < 6; i++) {
-                var forecastArea = document.getElementById("forecast")
+            for (var i = 0; i < 5; i++) {
+
                 var futureDays = document.createElement("div");
                 var futureTemp = document.createElement("p");
                 var futureHumidity = document.createElement("p");
@@ -75,6 +79,7 @@ function get5DayForecast() {
             }
 
         })
+
 }
 
 // put this inside the getCurrentWeather function?
@@ -86,19 +91,26 @@ function getUVIndex(lat, lon) {
                 return response.json();
         })
         .then(function (data) {
-            currentUV.textContent = data[0].value;
+            var UVvalue = data[0].value;
+            currentUV.textContent = UVvalue;
             console.log(data);
-            if (currentUV.value <= 2) {
+            console.log(data[0].value);
+            if (UVvalue <= 2) {
+                // set color
                 currentUV.classList.add("uv-safe")
+                console.log("safe")
             }
-            if (currentUV.value > 2 & currentUV.value <= 5) {
+            if (UVvalue > 2 & UVvalue <= 5) {
                 currentUV.classList.add("uv-medium")
+                console.log("medium")
             }
-            if (currentUV.value > 5 & currentUV.value <= 7) {
+            if (UVvalue > 5 & UVvalue <= 7) {
                 currentUV.classList.add("uv-danger")
+                console.log("danger")
             }
-            if (currentUV.value > 7) {
+            if (UVvalue > 7) {
                 currentUV.classList.add("uv-go-home")
+                console.log("go-home")
             }
         })
 }
@@ -113,8 +125,17 @@ function loadSavedCities() {
         var cityButton = document.createElement('button');
         cityButton.textContent = cities[i];
         pastSearchesArea.appendChild(cityButton);
+
+        cityButton.addEventListener("click", function () {
+            city = this.textContent;
+            console.log(city);
+            // currentWeatherEl.innerHTML = "";
+            getCurrentWeather();
+            get5DayForecast();
+        })
     }
     // add on click that changes city variable to the city specified by button
+
 }
 
 function saveCity() {
@@ -134,5 +155,21 @@ search.addEventListener("click", function (event) {
 
 loadSavedCities()
 
+function render() {
+    var storedCities = localStorage.getItem('weather-cities');
+    if (storedCities === null) {
+        return;
+    }
+    var splitCities = storedCities.split(",");
+    if (splitCities.length === 0) {
+        return;
+    }
+    city = splitCities[0];
+    getCurrentWeather();
+    get5DayForecast();
+
+    console.log(city);
+}
+render();
 
 // search.addEventListener('click', getApi);
