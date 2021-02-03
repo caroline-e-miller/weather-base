@@ -12,7 +12,7 @@ var userInput = document.getElementById('input');
 var currentWeatherEl = document.getElementById("currentWeather");
 var forecastEl = document.getElementById("forecast");
 var currentCity = document.getElementById("current-city");
-var currentIcon = document.getElementById("icon");
+// var currentIcon = document.getElementById("weather-icon");
 var currentTemp = document.getElementById("current-temp");
 var currentHumidity = document.getElementById("current-humidity");
 var currentWindSpeed = document.getElementById("current-wind");
@@ -44,13 +44,14 @@ function getCurrentWeather() {
         })
         .then(function (data) {
             currentCity.textContent = data.name;
-            // currentIcon.something = data.weather[0]
             currentTemp.textContent = data.main.temp + "°";
             currentHumidity.textContent = data.main.humidity + "%";
             currentWindSpeed.textContent = data.wind.speed + "mph";
 
-            var icon = document.createElement("img");
-            // icon.setAttribute("src", "http://openweathermap.org/img/wn/" + currentIcon + "@2x.png");
+            var currentIcon = document.getElementById("weather-icon");
+            var iconData = data.weather[0].icon;
+            var iconURL = "http://openweathermap.org/img/w/" + iconData + ".png";
+            currentIcon.setAttribute('src', iconURL);
             console.log(data);
             getUVIndex(data.coord.lat, data.coord.lon);
             // get5DayForecast()
