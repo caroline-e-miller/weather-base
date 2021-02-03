@@ -10,7 +10,7 @@ This application can be used for planning events and activities throughout the w
 
 # Deployed link
 
-
+https://caroline-e-miller.github.io/weather-base/
 
 # Screenshots
 
