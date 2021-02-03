@@ -2,7 +2,7 @@
 
 # Description
 
-The Weather Dashboard is an application where users can search for weather conditions by city, and they are presented with essential weather conditions including a color-coded UV index. A five-day forecast is also presented, with temperature and humidity included in their respective columns.
+The Weather Dashboard is an application where users can search for weather conditions by city, and they are presented with essential weather conditions including a color-coded UV index. A five-day forecast is also presented, with temperature and humidity included in their respective columns. Recent searches are stored in buttons, are are updated upon refresh of the page. Additionally, the most recent typed search is restored upon the refresh of the page.
 
 # Usage
 
