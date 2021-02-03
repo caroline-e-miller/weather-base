@@ -12,6 +12,7 @@ var userInput = document.getElementById('input');
 var currentWeatherEl = document.getElementById("currentWeather");
 var forecastEl = document.getElementById("forecast");
 var currentCity = document.getElementById("current-city");
+var currentIcon = document.getElementById("icon");
 var currentTemp = document.getElementById("current-temp");
 var currentHumidity = document.getElementById("current-humidity");
 var currentWindSpeed = document.getElementById("current-wind");
@@ -43,9 +44,13 @@ function getCurrentWeather() {
         })
         .then(function (data) {
             currentCity.textContent = data.name;
+            // currentIcon.something = data.weather[0]
             currentTemp.textContent = data.main.temp + "°";
             currentHumidity.textContent = data.main.humidity + "%";
             currentWindSpeed.textContent = data.wind.speed + "mph";
+
+            var icon = document.createElement("img");
+            // icon.setAttribute("src", "http://openweathermap.org/img/wn/" + currentIcon + "@2x.png");
             console.log(data);
             getUVIndex(data.coord.lat, data.coord.lon);
             // get5DayForecast()
