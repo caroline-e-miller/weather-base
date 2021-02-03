@@ -13,3 +13,5 @@ This application can be used for planning events and activities throughout the w
 
 
 # Screenshots
+
+<img width="1401" alt="Screen Shot 2021-02-03 at 2 55 12 PM" src="https://user-images.githubusercontent.com/70964778/106808981-b9680f00-6630-11eb-86cb-0e28ca7e633f.png">
