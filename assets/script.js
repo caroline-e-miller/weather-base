@@ -74,11 +74,20 @@ function get5DayForecast() {
             for (var i = 0; i < 5; i++) {
 
                 var futureDays = document.createElement("div");
+                var futureIcon = document.createElement("img");
                 var futureTemp = document.createElement("p");
                 var futureHumidity = document.createElement("p");
+
                 futureDays.setAttribute("class", "col card");
                 futureTemp.textContent = "Temperature: " + data.list[i].main.temp + "°";
                 futureHumidity.textContent = "Humidity: " + data.list[i].main.humidity + "%";
+
+
+                var futureIconData = data.list[0].weather[0].icon;
+                var futureIconURL = "http://openweathermap.org/img/w/" + futureIconData + ".png";
+                futureIcon.setAttribute('src', futureIconURL);
+
+                futureDays.appendChild(futureIcon);
                 futureDays.appendChild(futureTemp);
                 futureDays.appendChild(futureHumidity);
                 forecastArea.appendChild(futureDays);
