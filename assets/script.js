@@ -29,12 +29,7 @@ const lonComponent = "&lon="
 const uvAPI = "&appid2cef2d7cae052715188e701df4ab1db7"
 var uvURL = "https://api.openweathermap.org/data/2.5/weather?lat=";
 var forecastURL = "https://api.openweathermap.org/data/2.5/forecast/?q="
-// var forecastURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=";
 var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=";
-
-// var forecastUvURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&appid=2cef2d7cae052715188e701df4ab1db7"
-
-
 
 function getCurrentWeather() {
     fetch(currentWeatherURL + city + fahrenheit)
@@ -59,7 +54,6 @@ function getCurrentWeather() {
 }
 
 function get5DayForecast() {
-    // var forecastUvURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&appid=2cef2d7cae052715188e701df4ab1db7"
     fetch(forecastURL + city + dayRange)
         .then(function (response) {
 
@@ -97,7 +91,6 @@ function get5DayForecast() {
 
 }
 
-// put this inside the getCurrentWeather function?
 function getUVIndex(lat, lon) {
     var uvURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=2cef2d7cae052715188e701df4ab1db7";
     fetch(uvURL)
