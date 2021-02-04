@@ -99,7 +99,7 @@ function get5DayForecast() {
 
 // put this inside the getCurrentWeather function?
 function getUVIndex(lat, lon) {
-    var uvURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=2cef2d7cae052715188e701df4ab1db7";
+    var uvURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=2cef2d7cae052715188e701df4ab1db7";
     fetch(uvURL)
         .then(function (response) {
             if (response.ok)
