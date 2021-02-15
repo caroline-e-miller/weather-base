@@ -10,7 +10,7 @@ This application can be used for planning events and activities throughout the w
 
 # Technologies Used
 
-HTML, jQuery, CSS
+HTML, JavaScript, CSS
 
 # Deployed link
 
