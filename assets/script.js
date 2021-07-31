@@ -1,18 +1,8 @@
-
-// look at previous activities for ideas (namely the mini project)
-// link up the weather API
-// create search mechanism (look at mini project)
-// create onclick events for previously searched cities
-// link CSS color to UV values (look at day planner hw)
-// create local storage for previous search values
-// get most recent search value upon refresh of the page
-
 var search = document.getElementById("submit");
 var userInput = document.getElementById('input');
 var currentWeatherEl = document.getElementById("currentWeather");
 var forecastEl = document.getElementById("forecast");
 var currentCity = document.getElementById("current-city");
-// var currentIcon = document.getElementById("weather-icon");
 var currentTemp = document.getElementById("current-temp");
 var currentHumidity = document.getElementById("current-humidity");
 var currentWindSpeed = document.getElementById("current-wind");
@@ -49,7 +39,6 @@ function getCurrentWeather() {
             currentIcon.setAttribute('src', iconURL);
             console.log(data);
             getUVIndex(data.coord.lat, data.coord.lon);
-            // get5DayForecast()
         })
 }
 
@@ -137,12 +126,10 @@ function loadSavedCities() {
         cityButton.addEventListener("click", function () {
             city = this.textContent;
             console.log(city);
-            // currentWeatherEl.innerHTML = "";
             getCurrentWeather();
             get5DayForecast();
         })
     }
-    // add on click that changes city variable to the city specified by button
 
 }
 
@@ -180,4 +167,3 @@ function render() {
 }
 render();
 
-// search.addEventListener('click', getApi);
