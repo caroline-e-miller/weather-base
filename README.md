@@ -8,6 +8,10 @@ The Weather Dashboard is an application where users can search for weather condi
 
 This application can be used for planning events and activities throughout the week. It can also be used to plan travel attire in new cities, and to gather weather data for research.
 
+# Technologies Used
+
+HTML, JavaScript, CSS
+
 # Deployed link
 
 https://caroline-e-miller.github.io/weather-base/
